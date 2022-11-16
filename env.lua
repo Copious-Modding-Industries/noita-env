@@ -114,6 +114,24 @@ function EntityLoad(p, x, y)
     return #entities
 end
 
+function EntityCreateNew(name)
+    table.insert(entities, {
+        name = name,
+        transform = {
+            x = 0,
+            y = 0,
+            rotation = 0,
+            scale_x = 1,
+            scale_y = 1
+        },
+        filepath = p,
+        parent = nil,
+        children = nil,
+        tags = ""
+    })
+    return #entities
+end
+
 function EntityInflictDamage(_, amount, type, desc, rag_fx, imp_x, imp_y, entity_responsible, pos_x, pos_y,
                              knockback_force)
 
