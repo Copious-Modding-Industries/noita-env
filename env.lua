@@ -212,3 +212,11 @@ end
 function LoadGameEffectEntityTo(_, _)
     return nil
 end
+
+function Debug_GetEntityTable()
+    return entities
+end
+
+function Debug_GetComponentTable()
+    return components
+end
