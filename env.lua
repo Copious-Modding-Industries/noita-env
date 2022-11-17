@@ -109,7 +109,8 @@ function EntityLoad(p, x, y)
         filepath = p,
         parent = nil,
         children = nil,
-        tags = ""
+        tags = "",
+        components = {}
     })
     return #entities
 end
@@ -127,7 +128,8 @@ function EntityCreateNew(name)
         filepath = "",
         parent = nil,
         children = nil,
-        tags = ""
+        tags = "",
+        components = {},
     })
     return #entities
 end
