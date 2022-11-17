@@ -124,7 +124,7 @@ function EntityCreateNew(name)
             scale_x = 1,
             scale_y = 1
         },
-        filepath = p,
+        filepath = "",
         parent = nil,
         children = nil,
         tags = ""
@@ -161,6 +161,7 @@ function EntityAddComponent2(ent, type, comp)
     obj._tags = obj._tags or ""
     obj._enabled = obj._enabled or true
     table.insert(components, obj)
+    table.insert(entities[ent].components, #components)
     return #components
 end
 
@@ -172,6 +173,12 @@ function EntityRemoveComponent(e, c)
     local nc = {}
     for _, value in ipairs(entities[e].components) do
         if value ~= c then table.insert(nc, value) end
+    end
+end
+
+function EntityGetFirstComponent(ent, type, tags)
+    for index, value in ipairs(components) do
+        if value._type == type and value._tags:find(tags) then return index end
     end
 end
 
